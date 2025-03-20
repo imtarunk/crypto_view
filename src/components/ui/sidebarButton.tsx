@@ -6,10 +6,11 @@ interface Props {
 
 export const SideBarButton = ({ icon, text }: Props) => {
   return (
-    <div className="flex gap-2 m-3 py-3 p-4 space-x-1 text-amber-50 hover:bg-blue-600  rounded-full cursor-pointer">
+    <button className="flex gap-2 m-3 py-3 p-4 space-x-1 text-amber-50 hover:bg-blue-600  rounded-full cursor-pointer">
+      {" "}
       {icon && <span className="text-2xl">{icon}</span>}
       <span>{text}</span>
-    </div>
+    </button>
   );
 };
 
