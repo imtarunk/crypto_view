@@ -4,7 +4,7 @@ import Trending from "./Trending";
 import Explore from "./Explore";
 
 const Home = () => {
-  const [mintPage, setMintPage] = useState("create"); // Default page
+  const [mintPage, setMintPage] = useState<string>("create"); // Ensure it's typed correctly
 
   // Function to render the correct component based on `mintPage`
   const renderMintPage = () => {
@@ -30,9 +30,13 @@ const Home = () => {
   );
 };
 
+interface TopBarProps {
+  setMintPage: React.Dispatch<React.SetStateAction<string>>; // Change number to string
+}
+
 // ✅ Pass `setMintPage` as a prop so it updates the state in `Home`
-const TopBar = ({ setMintPage }) => {
-  const [activeTab, setActiveTab] = useState("trending"); // Default active tab
+const TopBar: React.FC<TopBarProps> = ({ setMintPage }) => {
+  const [activeTab, setActiveTab] = useState<string>("trending"); // Default active tab
 
   return (
     <div className="bg-black text-white flex items-center pt-2 border-b border-gray-800">
@@ -44,7 +48,7 @@ const TopBar = ({ setMintPage }) => {
                 ${activeTab === item ? "text-blue-500" : "hover:text-blue-500"}
               `}
             onClick={() => {
-              setMintPage(item);
+              setMintPage(item); // Now correctly typed as string
               setActiveTab(item);
             }}
           >
