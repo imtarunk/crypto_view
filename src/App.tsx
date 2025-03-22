@@ -13,6 +13,7 @@ import WalletManager from "./components/pages/ManageWallet";
 import { Routes, Route, useLocation } from "react-router";
 import Home from "./components/pages/home";
 import { pageVariants } from "./components/util";
+import { Toaster } from "react-hot-toast";
 
 function App() {
   const location = useLocation();
@@ -50,6 +51,7 @@ function App() {
                 </AnimatePresence>
               </div>
             </div>
+            <Toaster />
           </div>
         </WalletModalProvider>
       </WalletProvider>

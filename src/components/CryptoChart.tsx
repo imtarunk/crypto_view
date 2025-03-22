@@ -39,21 +39,26 @@ const CryptoChart = () => {
     fetchChartData();
   }, []);
   return (
-    <div className="mt-6 w-96">
-      <h2 className="text-lg font-semibold">SOL Price Chart</h2>
-      <Line
-        data={{
-          labels: Array.from({ length: chartData.length }, (_, i) => i),
-          datasets: [
-            {
-              label: "SOL Price (USD)",
-              data: chartData,
-              borderColor: "#4CAF50",
-              backgroundColor: "rgba(76, 175, 80, 0.2)",
-            },
-          ],
-        }}
-      />
+    <div className="mt-6 w-full">
+      <div>
+        <div className=" bg-black/40 rounded-lg flex items-center justify-center">
+          <div className="text-gray-600">
+            <Line
+              data={{
+                labels: Array.from({ length: chartData.length }, (_, i) => i),
+                datasets: [
+                  {
+                    label: "SOL Price (USD)",
+                    data: chartData,
+                    borderColor: "#4CAF50",
+                    backgroundColor: "rgba(76, 175, 80, 0.2)",
+                  },
+                ],
+              }}
+            />
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

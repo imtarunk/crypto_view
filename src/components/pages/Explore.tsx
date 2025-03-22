@@ -3,7 +3,9 @@ import CryptoSwap from "./swapPage";
 const Explore = () => {
   return (
     <>
-      <CryptoSwap />
+      <div className="flex items-center justify-center">
+        <CryptoSwap />
+      </div>
     </>
   );
 };

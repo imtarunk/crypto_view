@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@project-serum/anchor": "^0.26.0",
+    "@solana/spl-token": "^0.4.13",
     "@solana/wallet-adapter-base": "^0.9.24",
     "@solana/wallet-adapter-react": "^0.15.36",
     "@solana/wallet-adapter-react-ui": "^0.9.36",
@@ -25,11 +26,13 @@
     "react": "^19.0.0",
     "react-chartjs-2": "^5.3.0",
     "react-dom": "^19.0.0",
+    "react-hot-toast": "^2.5.2",
     "react-icon": "^1.0.0",
     "react-icons": "^5.5.0",
     "react-router": "^7.4.0",
     "recharts": "^2.15.1",
-    "tailwindcss": "^4.0.14"
+    "tailwindcss": "^4.0.14",
+    "vite-plugin-node-polyfills": "^0.23.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.21.0",
