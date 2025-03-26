@@ -115,7 +115,6 @@ const CryptoSwap = () => {
   const [fromToken, setFromToken] = useState(tokens[0].name);
   const [toToken, setToToken] = useState(tokens[2].name);
   const [amount, setAmount] = useState(0);
-  const [quote, setQuote] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [showParticles, setShowParticles] = useState(false);
 
@@ -125,23 +124,7 @@ const CryptoSwap = () => {
 
     if (!fromAddress || !toAddress || amount <= 0) return;
 
-    const getQuote = async () => {
-      setIsLoading(true);
-      // Simulate API call with timeout
-      setTimeout(() => {
-        const simulatedQuote = {
-          outAmount: amount * (Math.random() * 10 + 90),
-        };
-        setQuote(simulatedQuote);
-        setIsLoading(false);
-      }, 700);
-    };
-
-    getQuote();
-
-    const interval = setInterval(() => {
-      getQuote();
-    }, 10000);
+    const interval = setInterval(() => {}, 10000);
 
     return () => clearInterval(interval);
   }, [fromToken, toToken, amount]);
@@ -153,6 +136,7 @@ const CryptoSwap = () => {
       setToToken(fromToken);
       setShowParticles(false);
     }, 500);
+    setIsLoading(false);
   };
 
   return (
@@ -399,8 +383,6 @@ const CryptoSwap = () => {
                     <p className="text-lg font-medium">
                       {isLoading ? (
                         <span className="text-cyan-400">Loading...</span>
-                      ) : quote ? (
-                        <span>{quote.outAmount.toFixed(2)}</span>
                       ) : (
                         <span>0.00</span>
                       )}
@@ -412,13 +394,7 @@ const CryptoSwap = () => {
               {/* Price */}
               <div className="flex justify-between text-md text-gray-500 px-2 ">
                 <span>Exchange Rate:</span>
-                <span>
-                  {quote
-                    ? `1 ${fromToken} ≈ ${(quote.outAmount / amount).toFixed(
-                        4
-                      )} ${toToken}`
-                    : "--"}
-                </span>
+                <span>23</span>
               </div>
 
               {/* Swap Button */}

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import TokenLaunchModel from "../tokenLaunchModel";
 import {
   useConnection,
@@ -23,8 +23,8 @@ import {
 } from "@solana/spl-token";
 import toast from "react-hot-toast";
 
-export const MintCard = () => {
-  const [isOpen, setIsOpen] = useState(false);
+export const MintCard: React.FC = () => {
+  const [isOpen, setIsOpen] = useState<boolean>(false);
 
   return (
     <div className="bg-gray-900 p-10 py-15 rounded-3xl shadow-lg w-1/2 m-4">
@@ -104,7 +104,7 @@ const mintTokens = async (
       await connection.getLatestBlockhash()
     ).blockhash;
 
-    const signedTransaction = await wallet.signTransaction(transaction);
+    const signedTransaction = await wallet.signTransaction!(transaction);
     const signature = await connection.sendRawTransaction(
       signedTransaction.serialize()
     );
@@ -121,14 +121,14 @@ const mintTokens = async (
   }
 };
 
-const SolanaTokenCreatorForm = () => {
-  const [decimals, setDecimals] = useState("6");
+const SolanaTokenCreatorForm: React.FC = () => {
+  const [decimals, setDecimals] = useState<string>("6");
   const wallet = useWallet();
   const { connection } = useConnection();
-  const [tokenName, setTokenName] = useState("");
-  const [tokenSymbol, setTokenSymbol] = useState("");
-  const [amount, setAmount] = useState("100");
-  const [isLoading, setIsLoading] = useState(false);
+  const [tokenName, setTokenName] = useState<string>("");
+  const [tokenSymbol, setTokenSymbol] = useState<string>("");
+  const [amount, setAmount] = useState<string>("100");
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const createToken = async () => {
     try {
@@ -171,7 +171,8 @@ const SolanaTokenCreatorForm = () => {
       ).blockhash;
       transaction.partialSign(mintKeypair);
 
-      const signedTransaction = await wallet.signTransaction(transaction);
+      const signedTransaction = await wallet.signTransaction!(transaction);
+
       const signature = await connection.sendRawTransaction(
         signedTransaction.serialize()
       );
@@ -402,3 +403,5 @@ const SolanaTokenCreatorForm = () => {
     </div>
   );
 };
+
+export default SolanaTokenCreatorForm;
