@@ -1,7 +1,6 @@
 import { useState } from "react";
 import MintPage from "./mintPage";
 import Trending from "./Trending";
-import Explore from "./Explore";
 
 const Home = () => {
   const [mintPage, setMintPage] = useState<string>("create"); // Ensure it's typed correctly
@@ -12,7 +11,7 @@ const Home = () => {
       case "trending":
         return <Trending />;
       case "explore":
-        return <Explore />;
+        return null;
       case "create":
         return <MintPage />;
       default:

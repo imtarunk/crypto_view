@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import CryptoChart from "../CryptoChart";
+import CryptoChart from "./CryptoChart";
 
 const SolIcon = () => (
   <div className="relative w-6 h-6 flex items-center justify-center">
@@ -156,7 +156,7 @@ const CryptoSwap = () => {
   };
 
   return (
-    <div className="p-8 flex items-center text-white border-2 w-full h-full">
+    <div className="p-8 flex gap-50 items-center">
       {/* Background elements */}
       <div>
         <div className="inset-0 bg-gradient-to-br from-black via-gray-900 to-black"></div>

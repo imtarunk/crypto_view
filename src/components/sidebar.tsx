@@ -28,9 +28,16 @@ const Sidebar = () => {
         {/* Add more SideBarButton components as needed */}
         <div className="border-t border-gray-800">
           <FunctionButton text="Buy" icon={<FaPlus />} />
-          <FunctionButton text="Swap" icon={<IoSwapHorizontalSharp />} />
-          <FunctionButton text="Send" icon={<FaArrowUp />} />
-          <FunctionButton text="Receive" icon={<FaArrowDown />} />
+          <button onClick={() => navigate("/swap")}>
+            <FunctionButton text="Swap" icon={<IoSwapHorizontalSharp />} />
+          </button>
+          <button onClick={() => navigate("/txn")}>
+            <FunctionButton text="Send" icon={<FaArrowUp />} />
+          </button>
+
+          <button>
+            <FunctionButton text="Receive" icon={<FaArrowDown />} />
+          </button>
         </div>
       </div>
     </div>
