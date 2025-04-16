@@ -4,7 +4,6 @@ const MintPage = () => {
   return (
     <>
       <MintCard />
-      <MintCard />
     </>
   );
 };
